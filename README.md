@@ -1,21 +1,11 @@
 # Lane Detection in Autonomous Drivable Vehicles
 
-This project is about detecting the Drivable area and detecting lanes on the road. This project is mainly about finetuning the model with the dataset we generated using stable diffusion
-
+This project is about detecting the Drivable area and detecting lanes on the road. This project is mainly about using machine learning model to fine-tune the model with the dataset we generated using stable diffusion in addition to the real data.
 ## Dataset
 
-- This dataset contains images for Drivable Area segmentation and Lane detection. All the images are generated using Stable diffusion in Google Colaboratory. This dataset is around 90 Megabytes. The project we are working on has two label outputs for each sample. And these outputs are overlayed on the original image.
+- This dataset contains images for Drivable Area segmentation and Lane detection. All the images are generated using Stable diffusion in Google Colab. This dataset is around 90 Megabytes. The project we are working on has two label outputs for each sample. And these outputs are overlayed on the original image.
 - We've used stable diffusion to generate images for finetuning the model. click on the below badge to see how we worked with stable diffusion. The model we used is CompVis's stable-diffusion-v1-4 which can run on T4 GPU provided without any cost by google.
 
-## Annotation
-
-- The images are annotated using labelme tool. Which is an opensource tool used to annotate image data. Each image is annotated twice one is for drivable area segmentation and another is for lane detection.
-
-### Labelme Annotation Tool
-
-![image](https://github.com/balnarendrasapa/road-detection/assets/61614290/3458871a-12ff-4ce0-b26c-e0a57f985c96)
-
-Click [here](https://github.com/wkentaro/labelme) to the labelme's github repo
 
 #### Original Image
 
@@ -25,13 +15,13 @@ Click [here](https://github.com/wkentaro/labelme) to the labelme's github repo
 
 ![image](https://github.com/balnarendrasapa/road-detection/assets/61614290/c34f80fa-07e8-4b82-b767-9da4f8f14071)
 
-#### Annotation for Lane detecton
+#### Annotation for Lane detection
 
 ![image](https://github.com/balnarendrasapa/road-detection/assets/61614290/d2ef6899-de98-41ea-a723-4498ae4454e6)
 
 ## Partitioning
 
-The dataset is structured into three distinct partitions: Train, Test, and Validation. The Train split comprises 80% of the dataset, containing both the input images and their corresponding labels. Meanwhile, the Test and Validation splits each contain 10% of the data, with a similar structure, consisting of image data and label information.
+The dataset is structured into three parts: Train, Test, and Validation. The Train split comprises 80% of the dataset, containing both the input images and their corresponding labels. Meanwhile, the Test and Validation splits each contain 10% of the data, with a similar structure, consisting of image data and label information.
 Within each of these splits, there are three folders:
 
 - Images: This folder contains the original images, serving as the raw input data for the task at hand.
@@ -39,7 +29,6 @@ Within each of these splits, there are three folders:
 - Segments: Here, you can access the labels specifically designed for Drivable Area Segmentation, crucial for understanding road structure and drivable areas.
 
 - Lane: This folder contains labels dedicated to Lane Detection, assisting in identifying and marking lanes on the road.
-
 
 ### Transformation while Training
 
@@ -74,13 +63,11 @@ This transformation simulates changes in the camera's perspective, including rot
 
 - Tversky loss and Focal loss are used here. Total loss = Focal Loss + Tversky Loss
 
-### Optimization
-
-- In this setup, an Adam optimizer with a dynamically decreasing learning rate is employed. This adaptive learning rate is regulated using a Polynomial Learning Rate Scheduler, which gradually reduces the learning rate as the training progresses.
-
 
 ## References
 
 [1] [TwinLiteNet: An Efficient and Lightweight Model for Driveable Area and Lane Segmentation in Self-Driving Cars](https://arxiv.org/abs/2307.10705), **Authors**: Quang Huy Che, Dinh Phuc Nguyen, Minh Quan Pham, Duc Khai Lam, **Year**: 2023. Click [here](https://github.com/chequanghuy/TwinLiteNet) to go the TwinLiteNet Repository
 
 [2] The Stable Diffusion code is taken from here. click [here](https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/stable_diffusion.ipynb)
+
+
